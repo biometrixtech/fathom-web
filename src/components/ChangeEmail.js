@@ -10,7 +10,7 @@ import { Button, Form, } from 'semantic-ui-react';
 import _ from 'lodash';
 
 // import global components
-import utils from '../global/utils';
+import { AppUtils, } from '../global/utils/';
 
 // import components
 import { EmailConfirmation, } from './';
@@ -35,7 +35,7 @@ class ChangeEmail extends Component {
     }
 
     _handleFormSubmit = () => {
-        if(!utils.isEmailValid(this.state.form_inputs.current_email) || !utils.isEmailValid(this.state.form_inputs.new_email)) {
+        if(!AppUtils.isEmailValid(this.state.form_inputs.current_email) || !AppUtils.isEmailValid(this.state.form_inputs.new_email)) {
             this.setState({ error: 'YOUR EMAIL MUST BE A VALID EMAIL FORMAT', });
         } else if(this.state.form_inputs.current_email !== this.state.form_inputs.new_email) {
             this.setState({ error: 'YOUR EMAIL ADDRESSES DO NOT MATCH', });

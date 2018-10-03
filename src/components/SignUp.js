@@ -11,7 +11,7 @@ import { Link, } from 'react-router-dom';
 import _ from 'lodash';
 
 // import global components
-import utils from '../global/utils';
+import { AppUtils, } from '../global/utils/';
 
 // import AWS specific components
 import Amplify from 'aws-amplify';
@@ -51,14 +51,14 @@ class SignUp extends Component {
 
     _handleJoinFormSubmit = () => {
       const { email, password, pin, } = this.state.form_inputs;
-        let formValidation = utils.isLoginJoinFormValid(email, password, pin);
+        let formValidation = AppUtils.isLoginJoinFormValid(email, password, pin);
         if(formValidation.isValid) {
-            if(utils.tmpJoinFunction(email).success) {
+            if(AppUtils.tmpJoinFunction(email).success) {
                 // success redirect to success you're linked page
                 this.setState({ error: '', });
                 this.props.history.push('/success_join');
             } else {
-                this.setState({ error: utils.tmpJoinFunction(email).errorMsg, });
+                this.setState({ error: AppUtils.tmpJoinFunction(email).errorMsg, });
             }
         } else {
             this.setState({ error: formValidation.errorMsg, });
@@ -67,16 +67,16 @@ class SignUp extends Component {
 
     _handleLoginFormSubmit = () => {
         const { email, password, pin, } = this.state.form_inputs;
-        let formValidation = utils.isLoginJoinFormValid(email, password, pin);
+        let formValidation = AppUtils.isLoginJoinFormValid(email, password, pin);
         if(formValidation.isValid) {
-            if(utils.tmpLoginFunction(email).success) {
+            if(AppUtils.tmpLoginFunction(email).success) {
                 // success, do something based on .nextPage
                 this.setState({ error: '', });
-                if(utils.tmpLoginFunction(email).nextPage) {
-                    this.props.history.push(utils.tmpLoginFunction(email).nextPage);
+                if(AppUtils.tmpLoginFunction(email).nextPage) {
+                    this.props.history.push(AppUtils.tmpLoginFunction(email).nextPage);
                 }
             } else {
-                this.setState({ error: utils.tmpLoginFunction(email).errorMsg, });
+                this.setState({ error: AppUtils.tmpLoginFunction(email).errorMsg, });
             }
         } else {
             this.setState({ error: formValidation.errorMsg, });
