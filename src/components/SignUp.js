@@ -24,7 +24,7 @@ class SignUp extends Component {
         this.state = {
             error:       '',
             form_inputs: {
-                email:    'test1@fathomai.com',
+                email:    'test4@fathomai.com',
                 password: 'Fathom123!',
                 pin:      '123',
             },
@@ -56,6 +56,7 @@ class SignUp extends Component {
             if(utils.tmpJoinFunction(email).success) {
                 // success redirect to success you're linked page
                 this.setState({ error: '', });
+                this.props.history.push('/success_join');
             } else {
                 this.setState({ error: utils.tmpJoinFunction(email).errorMsg, });
             }

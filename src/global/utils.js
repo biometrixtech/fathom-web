@@ -54,12 +54,12 @@ const utils = {
         let success = false;
         if(email === 'test1@fathomai.com') {
             success = true;
-            nextPage = 'success';
+            nextPage = '/success_login';
         } else if(email === 'test2@fathomai.com') {
             errorMsg = 'INVALID PIN';
         } else if(email === 'test3@fathomai.com') {
             success = true;
-            nextPage = 'no_seats';
+            nextPage = '/no_seats';
         } else {
             errorMsg = 'EMAIL NOT VALID';
         }

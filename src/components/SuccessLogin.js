@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import logo from '../assets/logo.png';
 import '../styles/App.css';
 
-class Success extends Component {
+class SuccessLogin extends Component {
     render = () => {
         return (
             <div className={'App'}>
@@ -31,4 +31,4 @@ class Success extends Component {
     }
 }
 
-export default Success;
+export default SuccessLogin;
