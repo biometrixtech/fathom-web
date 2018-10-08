@@ -8,6 +8,9 @@ import '../styles/App.css';
 // import third-party libraries
 import { Button, } from 'semantic-ui-react';
 
+// import components
+import { AppLinks, } from './';
+
 class Verified extends Component {
     render = () => {
         return (
@@ -18,10 +21,9 @@ class Verified extends Component {
                         className={'App-logo'}
                         src={logo}
                     />
-                    <h2>{'YOU\'RE EMAIL HAS BEEN VERIFIED'}</h2>
-                    <p>{'Download the app to get started'}</p>
-                    <Button>{'GET IT ON GOOGLE PLAY STORE - IMG COMING SOON!'}</Button>
-                    <Button>{'DOWNLOAD ON THE APP STORE - IMG COMING SOON!'}</Button>
+                    <h2 className={'oswald-normal'}>{'YOU\'RE EMAIL HAS BEEN VERIFIED'}</h2>
+                    <p className={'subtitle roboto-normal'}>{'Download the app to get started'}</p>
+                    <AppLinks />
                 </header>
             </div>
         );

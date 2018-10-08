@@ -1,11 +1,20 @@
 const utils = {
 
+    androidStoreUrl() {
+        return 'https://play.google.com/store/apps/details?id=com.fathom.fathomai';
+    },
+
+    iosStoreUrl() {
+        return 'https://itunes.apple.com/us/app/fathom-ai/id1281800840?ls=1&mt=8';
+    },
+
     isEmailValid(email) {
+        /*eslint no-useless-escape: 0*/
         const emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return emailRegex.test(email);
     },
 
-    isPasswordValid(password){
+    isPasswordValid(password) {
         // Password Validation
         // - 8-16 characters
         // - Must include uppercase letter, lowercase letter, and a number
@@ -27,7 +36,7 @@ const utils = {
         return pin.length > 0;
     },
 
-    isLoginJoinFormValid(email, password, pin){
+    isLoginJoinFormValid(email, password, pin) {
         let isValid = true;
         let errorMsg = false;
         if(!utils.isEmailValid(email)) {

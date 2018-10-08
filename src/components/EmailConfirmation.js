@@ -21,6 +21,9 @@ import '../styles/App.css';
 // import third-party libraries
 import { Button, } from 'semantic-ui-react';
 
+// import components
+import { AppLinks, } from './';
+
 class EmailConfirmation extends Component {
     render = () => {
         return (
@@ -30,18 +33,17 @@ class EmailConfirmation extends Component {
                     className={'App-logo'}
                     src={logo}
                 />
-                <h2>{`CONFIRMATION EMAIL SENT TO ${this.props.email}`}</h2>
-                <p>{'Check your inbox and span folders for an email from Fathom. This may take a few minutes.'}</p>
-                <Button>{'GET IT ON GOOGLE PLAY STORE - IMG COMING SOON!'}</Button>
-                <Button>{'DOWNLOAD ON THE APP STORE - IMG COMING SOON!'}</Button>
-                <div>
+                <h2 className={'oswald-normal'}>{`CONFIRMATION EMAIL SENT TO ${this.props.email}`}</h2>
+                <p className={'subtitle roboto-normal'}>{'Check your inbox and span folders for an email from Fathom. This may take a few minutes.'}</p>
+                <AppLinks />
+                <div style={{paddingTop: 100,}}>
                     { this.props.handleResendEmailClicked ?
-                        <Button loading={this.props.loading} onClick={this.props.handleResendEmailClicked}>{'resend email'}</Button>
+                        <Button className={'button-link'} loading={this.props.loading} onClick={this.props.handleResendEmailClicked} style={{marginRight: 75,}}>{'resend email'}</Button>
                         :
                         null
                     }
                     { this.props.handleChangeEmailClicked ?
-                        <Button disabled={this.props.loading} onClick={this.props.handleChangeEmailClicked}>{'change email'}</Button>
+                        <Button className={'button-link'} disabled={this.props.loading} onClick={this.props.handleChangeEmailClicked}>{'change email'}</Button>
                         :
                         null
                     }

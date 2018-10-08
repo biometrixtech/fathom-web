@@ -5,6 +5,9 @@ import React, { Component } from 'react';
 import logo from '../assets/logo.png';
 import '../styles/App.css';
 
+// import components
+import { AppLinks, } from './';
+
 class SuccessLogin extends Component {
     render = () => {
         return (
@@ -15,16 +18,9 @@ class SuccessLogin extends Component {
                         className={'App-logo'}
                         src={logo}
                     />
-                    <h2>{'SUCCESS: YOU\'RE LINKED!'}</h2>
-                    <p>{'Login to your app to access your greater functionality, and say thanks to BUYER NAME!'}</p>
-                    <a
-                        className={"App-link"}
-                        href={"https://www.fathomai.com"}
-                        target={"_blank"}
-                        rel={"noopener noreferrer"}
-                    >
-                      {'Open App'}
-                    </a>
+                    <h2 className={'oswald-normal'}>{'SUCCESS: YOU\'RE LINKED!'}</h2>
+                    <p className={'subtitle roboto-normal'}>{'Login to your app to access your greater functionality, and say thanks to BUYER NAME!'}</p>
+                    <AppLinks />
                 </header>
             </div>
         );

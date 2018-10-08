@@ -93,19 +93,19 @@ class SignUp extends Component {
                         className={'App-logo'}
                         src={logo}
                     />
-                    <h2>{this.state.page === 'join' ? 'JOIN' : 'LOG IN'}</h2>
+                    <h2 className={'oswald-normal'}>{this.state.page === 'join' ? 'JOIN' : 'LOG IN'}</h2>
                     { this.state.error !== '' ?
                         <div className={'error-wrapper'}>
-                            <p className={'error-text'}>{this.state.error}</p>
+                            <p className={'error-text oswald-normal'}>{this.state.error}</p>
                         </div>
                         :
                         <div />
                     }
-                    <p>{'to access subscription.'}</p>
-                    <Form>
+                    <p className={'subtitle roboto-normal'}>{'to access subscription.'}</p>
+                    <Form className={'fathom-form'}>
                         <Form.Field>
-                            <label className={'form-label'}>{'pin'}</label>
                             <input
+                                className={'fathom-input roboto-normal'}
                                 onChange={this._handleFormChange}
                                 name={'pin'}
                                 placeholder={'pin'}
@@ -115,8 +115,8 @@ class SignUp extends Component {
                             />
                         </Form.Field>
                         <Form.Field>
-                            <label className={'form-label'}>{'email'}</label>
                             <input
+                                className={'fathom-input roboto-normal'}
                                 onChange={this._handleFormChange}
                                 name={'email'}
                                 placeholder={'email'}
@@ -126,8 +126,8 @@ class SignUp extends Component {
                             />
                         </Form.Field>
                         <Form.Field>
-                            <label className={'form-label'}>{'password'}</label>
                             <input
+                                className={'fathom-input roboto-normal'}
                                 onChange={this._handleFormChange}
                                 name={'password'}
                                 placeholder={'password'}
@@ -138,7 +138,7 @@ class SignUp extends Component {
                         </Form.Field>
                         { this.state.page === 'login' ?
                             <Link
-                                className={'App-link'}
+                                className={'App-link forgot-password-link roboto-normal'}
                                 onClick={() => console.log('forgot password')}
                                 to={'/'}
                             >
@@ -149,16 +149,17 @@ class SignUp extends Component {
                         }
                         <br />
                         <Button
+                            className={'fathom-button roboto-normal'}
                             onClick={this.state.page === 'join' ? this._handleJoinFormSubmit : this._handleLoginFormSubmit}
                             type={'button'}
                         >
                             {this.state.page === 'join' ? 'Join' : 'Login'}
                         </Button>
                         { this.state.page === 'join' ?
-                            <p>
+                            <p className={'App-subtext roboto-normal'}>
                                 {'Already have an account? '}
                                 <Link
-                                    className={'App-link'}
+                                    className={'App-link fathom-yellow'}
                                     onClick={() => this._togglePageState('login')}
                                     to={'/'}
                                 >
@@ -166,10 +167,10 @@ class SignUp extends Component {
                                 </Link>
                             </p>
                             :
-                            <p>
+                            <p className={'App-subtext roboto-normal'}>
                                 {'Don\'t have an account? '}
                                 <Link
-                                    className={'App-link'}
+                                    className={'App-link fathom-yellow'}
                                     onClick={() => this._togglePageState('join')}
                                     to={'/'}
                                 >

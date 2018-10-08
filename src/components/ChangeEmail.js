@@ -58,7 +58,7 @@ class ChangeEmail extends Component {
                             className={'App-logo'}
                             src={logo}
                         />
-                        <h2>{'CHANGE ACCOUNT EMAIL'}</h2>
+                        <h2 className={'oswald-normal'}>{'CHANGE ACCOUNT EMAIL'}</h2>
                         { this.state.error !== '' ?
                             <div className={'error-wrapper'}>
                                 <p className={'error-text'}>{this.state.error}</p>
@@ -66,11 +66,11 @@ class ChangeEmail extends Component {
                             :
                             <div />
                         }
-                        <p>{'Your email will be used for login and account management. Verfication must be complete.'}</p>
-                        <Form>
+                        <p className={'subtitle roboto-normal'}>{'Your email will be used for login and account management. Verfication must be complete.'}</p>
+                        <Form className={'fathom-form'}>
                             <Form.Field>
-                                <label className={'form-label'}>{'current email'}</label>
                                 <input
+                                    className={'fathom-input roboto-normal'}
                                     onChange={this._handleFormChange}
                                     name={'current_email'}
                                     placeholder={'current email'}
@@ -80,8 +80,8 @@ class ChangeEmail extends Component {
                                 />
                             </Form.Field>
                             <Form.Field>
-                                <label className={'form-label'}>{'new email'}</label>
                                 <input
+                                    className={'fathom-input roboto-normal'}
                                     onChange={this._handleFormChange}
                                     name={'new_email'}
                                     placeholder={'new email'}
@@ -91,7 +91,14 @@ class ChangeEmail extends Component {
                                 />
                             </Form.Field>
                         </Form>
-                        <Button loading={this.state.loading} onClick={this._handleFormSubmit}>{'Send Verification'}</Button>
+                        <Button
+                            className={'fathom-button roboto-normal'}
+                            loading={this.state.loading}
+                            onClick={this._handleFormSubmit}
+                            type={'button'}
+                        >
+                            {'Send Verification'}
+                        </Button>
                     </header>
                     :
                     <EmailConfirmation

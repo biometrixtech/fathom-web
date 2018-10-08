@@ -1,3 +1,4 @@
+import AppLinks from './AppLinks';
 import ChangeEmail from './ChangeEmail';
 import EmailConfirmation from './EmailConfirmation';
 import NoSeats from './NoSeats';
@@ -7,6 +8,7 @@ import SuccessLogin from './SuccessLogin';
 import Verified from './Verified';
 
 export {
+    AppLinks,
     ChangeEmail,
     EmailConfirmation,
     NoSeats,
