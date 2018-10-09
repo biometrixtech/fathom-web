@@ -153,7 +153,7 @@ class SignUp extends Component {
                             onClick={this.state.page === 'join' ? this._handleJoinFormSubmit : this._handleLoginFormSubmit}
                             type={'button'}
                         >
-                            {this.state.page === 'join' ? 'Join' : 'Login'}
+                            {this.state.page === 'join' ? 'Join' : 'Log In'}
                         </Button>
                         { this.state.page === 'join' ?
                             <p className={'App-subtext roboto-normal'}>
@@ -163,7 +163,7 @@ class SignUp extends Component {
                                     onClick={() => this._togglePageState('login')}
                                     to={'/'}
                                 >
-                                    {'Login'}
+                                    {'Log In'}
                                 </Link>
                             </p>
                             :

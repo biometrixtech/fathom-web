@@ -18,6 +18,7 @@
 
 .App h2 {
     font-size: 20pt;
+    margin-top: 40px;
 }
 
 .App-logo {
@@ -48,12 +49,12 @@
 
 .App-subtext {
     color: var(--fathom-white);
-    font-size: 15pt;
+    font-size: 12pt;
     opacity: 0.7;
 }
 
 .subtitle {
-    font-size: 15pt;
+    font-size: 12pt;
     opacity: 0.8;
 }
 
@@ -104,6 +105,7 @@
     border-bottom: 1px solid #f7f7f7 !important;
     border-radius: 0 !important;
     color: var(--fathom-yellow) !important;
+    font-weight: bold;
     text-align: center;
 }
 
@@ -135,6 +137,23 @@
 .fathom-input:-moz-placeholder { /* Firefox 4 - 18 */
     color: var(--fathom-yellow);
     opacity: 1;
+}
+
+.footer-wrapper {
+    padding-top: 100px;
+}
+
+.footer-wrapper button:first-of-type {
+    margin-right: 75px;
+}
+
+/*
+ * Responsive Specific Styles
+ */
+@media only screen and (max-width: 600px) {
+    .footer-wrapper button:first-of-type {
+        margin-right: 0px;
+    }
 }
 
 /*

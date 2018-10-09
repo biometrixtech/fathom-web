@@ -40,8 +40,8 @@ class SuccessJoin extends Component {
                         <h2 className={'oswald-normal'}>{'SUCCESS: YOU\'RE LINKED!'}</h2>
                         <p className={'subtitle roboto-normal'}>{'Download the app and complete email verification.'}</p>
                         <AppLinks />
-                        <div style={{paddingTop: 100,}}>
-                            <Button className={'button-link'} loading={this.state.loading} onClick={this._handleResendEmail} style={{marginRight: 75,}}>{'resend email'}</Button>
+                        <div className={'footer-wrapper'}>
+                            <Button className={'button-link'} loading={this.state.loading} onClick={this._handleResendEmail}>{'resend email'}</Button>
                             <Button className={'button-link'} disabled={this.state.loading} onClick={() => this.props.history.push('/change_email')}>{'change email'}</Button>
                         </div>
                     </header>
