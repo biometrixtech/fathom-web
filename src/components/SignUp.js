@@ -11,7 +11,8 @@ import { Link, } from 'react-router-dom';
 import _ from 'lodash';
 
 // import global components
-import { AppUtils, } from '../global/utils/';
+import { AppUtils, } from '../global/utils';
+import { UserActions, } from '../actions';
 
 // import AWS specific components
 import Amplify from 'aws-amplify';
@@ -69,6 +70,10 @@ class SignUp extends Component {
         const { email, password, pin, } = this.state.form_inputs;
         let formValidation = AppUtils.isLoginJoinFormValid(email, password, pin);
         if(formValidation.isValid) {
+            UserActions.loginUser(email, password)
+                .then(res => console.log('res',res))
+                .catch(err => console.log('err',err));
+
             if(AppUtils.tmpLoginFunction(email).success) {
                 // success, do something based on .nextPage
                 this.setState({ error: '', });
@@ -116,6 +121,7 @@ class SignUp extends Component {
                         </Form.Field>
                         <Form.Field>
                             <input
+                                autoComplete={'email'}
                                 className={'fathom-input roboto-normal'}
                                 onChange={this._handleFormChange}
                                 name={'email'}
@@ -127,6 +133,7 @@ class SignUp extends Component {
                         </Form.Field>
                         <Form.Field>
                             <input
+                                autoComplete={'current-password'}
                                 className={'fathom-input roboto-normal'}
                                 onChange={this._handleFormChange}
                                 name={'password'}
