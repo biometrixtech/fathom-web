@@ -30,6 +30,7 @@ export default {
         ['create_user',     `${usersAPIVersion}/user`],
         ['forgot_password', `${usersAPIVersion}/user/forgot_password`],
         ['login',           `${usersAPIVersion}/user/login`],
+        ['resend_email',    `${usersAPIVersion}/user/resend_email`],
         ['reset_password',  `${usersAPIVersion}/user/confirm_forgot_password`],
     ]),
 };

@@ -48,9 +48,21 @@ const resetPassword = (payload) => {
         .catch(err => Promise.reject(err));
 };
 
+/**
+  * Resend Email
+  */
+const resendEmail = (email) => {
+    return AppAPI.resend_email.post(false, { email })
+        .then(response => {
+            return Promise.resolve(response);
+        })
+        .catch(err => Promise.reject(err));
+};
+
 export default {
     createUser,
     forgotPassword,
     loginUser,
+    resendEmail,
     resetPassword,
 };
