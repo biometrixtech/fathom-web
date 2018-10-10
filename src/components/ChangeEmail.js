@@ -49,9 +49,9 @@ class ChangeEmail extends Component {
 
     render = () => {
         let { current_email, new_email, } = this.state.form_inputs;
-        return (
-            <div className={'App'}>
-                { this.state.page === 'change' ?
+        if(this.state.page === 'change') {
+            return(
+                <div className={'App'}>
                     <header className={'App-header'}>
                         <img
                             alt={'logo'}
@@ -90,24 +90,25 @@ class ChangeEmail extends Component {
                                     value={new_email}
                                 />
                             </Form.Field>
+                            <Button
+                                className={'fathom-button roboto-normal'}
+                                loading={this.state.loading}
+                                onClick={this._handleFormSubmit}
+                                type={'button'}
+                            >
+                                {'Send Verification'}
+                            </Button>
                         </Form>
-                        <Button
-                            className={'fathom-button roboto-normal'}
-                            loading={this.state.loading}
-                            onClick={this._handleFormSubmit}
-                            type={'button'}
-                        >
-                            {'Send Verification'}
-                        </Button>
                     </header>
-                    :
-                    <EmailConfirmation
-                        email={'help@fathomai.com'}
-                        loading={this.state.loading}
-                    />
-                }
-            </div>
-        );
+                </div>
+            )
+        }
+        return(
+            <EmailConfirmation
+                email={'help@fathomai.com'}
+                loading={this.state.loading}
+            />
+        )
     }
 }
 
