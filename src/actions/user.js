@@ -8,7 +8,7 @@ import { AppAPI, } from '../global/utils';
   * Get My User Data
   */
 const loginUser = (email, password) => {
-    return AppAPI('/users/2_0/user/login', 'POST', { personal_data: { email }, password })
+    return AppAPI.login.post(false, { personal_data: { email }, password })
         .then(response => {
             return Promise.resolve(response);
         })
@@ -19,7 +19,7 @@ const loginUser = (email, password) => {
   * Create User
   */
 const createUser = (payload) => {
-    return AppAPI('/user', 'POST', payload)
+    return AppAPI.create_user.post(false, payload)
         .then(response => {
             return Promise.resolve(response);
         })

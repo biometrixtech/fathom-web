@@ -71,9 +71,9 @@ class SignUp extends Component {
         let formValidation = AppUtils.isLoginJoinFormValid(email, password, pin);
         if(formValidation.isValid) {
             // TODO: START USING API CALLS
-            // UserActions.loginUser(email, password)
-            //     .then(res => console.log('res',res))
-            //     .catch(err => console.log('err',err));
+            UserActions.loginUser(email, password)
+                .then(res => console.log('res',res))
+                .catch(err => console.log('err',err));
             if(AppUtils.tmpLoginFunction(email).success) {
                 // success, do something based on .nextPage
                 this.setState({ error: '', });
