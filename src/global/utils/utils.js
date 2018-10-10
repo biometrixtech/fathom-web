@@ -49,7 +49,7 @@ const utils = {
         }
         if(!utils.isPinValid(pin)) {
             isValid = false;
-            errorMsg = 'PLEASE ENTER A VALID PINs';
+            errorMsg = 'PLEASE ENTER A VALID PIN';
         }
         return {
             errorMsg,
