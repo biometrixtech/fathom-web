@@ -11,16 +11,24 @@ import { Button, } from 'semantic-ui-react';
 // import components
 import { AppLinks, EmailConfirmation, } from './';
 
+// import global components
+import { UserActions, } from '../actions';
+
 class SuccessJoin extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            email:   '',
             loading: false,
             page:    'join',
         };
     }
 
     _handleResendEmail = () => {
+        // TODO: START USING API CALLS
+        UserActions.resendEmail(this.state.mail)
+            .then(res => console.log('res',res))
+            .catch(err => console.log('err',err));
         this.setState(
             { loading: true, },
             () => setTimeout(() => this.setState({ loading: false, page: 'confirmation', }), 3000),

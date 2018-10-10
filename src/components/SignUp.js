@@ -14,11 +14,6 @@ import _ from 'lodash';
 import { AppUtils, } from '../global/utils';
 import { UserActions, } from '../actions';
 
-// import AWS specific components
-import Amplify from 'aws-amplify';
-import aws_exports from '../aws-exports';
-Amplify.configure(aws_exports);
-
 class SignUp extends Component {
     constructor(props) {
         super(props);
@@ -51,9 +46,13 @@ class SignUp extends Component {
     }
 
     _handleJoinFormSubmit = () => {
-      const { email, password, pin, } = this.state.form_inputs;
+        const { email, password, pin, } = this.state.form_inputs;
         let formValidation = AppUtils.isLoginJoinFormValid(email, password, pin);
         if(formValidation.isValid) {
+            // TODO: START USING API CALLS - fix payload
+            UserActions.createUser(email, password)
+                .then(res => console.log('res',res))
+                .catch(err => console.log('err',err));
             if(AppUtils.tmpJoinFunction(email).success) {
                 // success redirect to success you're linked page
                 this.setState({ error: '', });
@@ -110,6 +109,7 @@ class SignUp extends Component {
                     <Form className={'fathom-form'}>
                         <Form.Field>
                             <input
+                                autoComplete={'off'}
                                 className={'fathom-input roboto-normal'}
                                 onChange={this._handleFormChange}
                                 name={'pin'}
@@ -147,7 +147,7 @@ class SignUp extends Component {
                             <Link
                                 className={'App-link forgot-password-link roboto-normal'}
                                 onClick={() => console.log('forgot password')}
-                                to={'/'}
+                                to={'/forgot_password'}
                             >
                                 {'forgot password'}
                             </Link>
