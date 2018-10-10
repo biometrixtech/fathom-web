@@ -57,6 +57,44 @@ const utils = {
         };
     },
 
+    isForgotPasswordFormValid(email) {
+        let isValid = true;
+        let errorMsg = false;
+        if(!utils.isEmailValid(email)) {
+            isValid = false;
+            errorMsg = 'PLEASE ENTER A VALID EMAIL ADDRESS';
+        }
+        return {
+            errorMsg,
+            isValid,
+        };
+    },
+
+    isResetPasswordFormValid(confirm_password, email, new_password, pin) {
+        let isValid = true;
+        let errorMsg = false;
+        if(!utils.isEmailValid(email)) {
+            isValid = false;
+            errorMsg = 'PLEASE ENTER A VALID EMAIL ADDRESS';
+        }
+        if(!utils.isPasswordValid(confirm_password) || !utils.isPasswordValid(new_password)) {
+            isValid = false;
+            errorMsg = 'PLEASE ENTER A VALID PASSWORD';
+        }
+        if(confirm_password !== new_password) {
+            isValid = false;
+            errorMsg = 'PLEASE ENTER A MATCHING PASSWORDS';
+        }
+        if(!utils.isPinValid(pin)) {
+            isValid = false;
+            errorMsg = 'PLEASE ENTER A VALID PIN';
+        }
+        return {
+            errorMsg,
+            isValid,
+        };
+    },
+
     tmpLoginFunction(email) {
         let errorMsg = '';
         let nextPage = false;

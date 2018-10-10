@@ -28,6 +28,8 @@ export default {
     //    - AppAPI.blog.delete()
     endpoints: new Map([
         ['create_user',     `${usersAPIVersion}/user`],
+        ['forgot_password', `${usersAPIVersion}/user/forgot_password`],
         ['login',           `${usersAPIVersion}/user/login`],
+        ['reset_password',  `${usersAPIVersion}/user/confirm_forgot_password`],
     ]),
 };
