@@ -12,7 +12,7 @@ class NoSeats extends Component {
     render = () => {
         return (
             <div className={'App'}>
-                <header className={'App-header'}>
+                <header className={'App-header'} style={{maxWidth: '100vh', margin: '0 auto',}}>
                     <img
                         alt={'logo'}
                         className={'App-logo'}
@@ -28,6 +28,7 @@ class NoSeats extends Component {
                                 '_blank'
                             )
                         }
+                        style={{width: '50%',}}
                         type={'button'}
                     >
                         {'Store'}
