@@ -27,28 +27,30 @@ import { AppLinks, } from './';
 class EmailConfirmation extends Component {
     render = () => {
         return (
-            <header className={'App-header'}>
-                <img
-                    alt={'logo'}
-                    className={'App-logo'}
-                    src={logo}
-                />
-                <h2 className={'oswald-normal'}>{`CONFIRMATION EMAIL SENT TO ${this.props.email}`}</h2>
-                <p className={'subtitle roboto-normal'}>{'Check your inbox and span folders for an email from Fathom. This may take a few minutes.'}</p>
-                <AppLinks />
-                <div style={{paddingTop: 100,}}>
-                    { this.props.handleResendEmailClicked ?
-                        <Button className={'button-link'} loading={this.props.loading} onClick={this.props.handleResendEmailClicked} style={{marginRight: 75,}}>{'resend email'}</Button>
-                        :
-                        null
-                    }
-                    { this.props.handleChangeEmailClicked ?
-                        <Button className={'button-link'} disabled={this.props.loading} onClick={this.props.handleChangeEmailClicked}>{'change email'}</Button>
-                        :
-                        null
-                    }
-                </div>
-            </header>
+            <div className={'App'}>
+                <header className={'App-header'}>
+                    <img
+                        alt={'logo'}
+                        className={'App-logo'}
+                        src={logo}
+                    />
+                    <h2 className={'oswald-normal'}>{`CONFIRMATION EMAIL SENT TO ${this.props.email}`}</h2>
+                    <p className={'subtitle roboto-normal'}>{'Check your inbox and span folders for an email from Fathom. This may take a few minutes.'}</p>
+                    <AppLinks />
+                    <div style={{paddingTop: 100,}}>
+                        { this.props.handleResendEmailClicked ?
+                            <Button className={'button-link'} loading={this.props.loading} onClick={this.props.handleResendEmailClicked} style={{marginRight: 75,}}>{'resend email'}</Button>
+                            :
+                            null
+                        }
+                        { this.props.handleChangeEmailClicked ?
+                            <Button className={'button-link'} disabled={this.props.loading} onClick={this.props.handleChangeEmailClicked}>{'change email'}</Button>
+                            :
+                            null
+                        }
+                    </div>
+                </header>
+            </div>
         );
     }
 }
